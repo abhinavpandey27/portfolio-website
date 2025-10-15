@@ -521,9 +521,9 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
 
 ---
 
-- [ ] **7.0 First Deployment & Validation** — Traceability: [System Spec § 4.1, § 12.1]
+- [x] **7.0 First Deployment & Validation** — Traceability: [System Spec § 4.1, § 12.1]
   
-  - [ ] 7.1 Create minimal home page
+  - [x] 7.1 Create minimal home page
         **Description:** Basic Next.js page to validate deployment
         **Acceptance:** Page deploys and is accessible
         **File:** `src/app/page.tsx`
@@ -541,7 +541,20 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
         - [ ] Build succeeds locally (`pnpm build`)
         - [ ] No TypeScript errors
   
-  - [ ] 7.2 Deploy to Cloudflare Workers (staging)
+  - [ ] 7.2 Deploy to Cloudflare Pages (staging)
+        **Description:** Deploy Next.js frontend to Cloudflare Pages
+        **Acceptance:** Site live on Cloudflare
+        **Steps:**
+        ```bash
+        # Connect to Cloudflare Pages
+        pnpm wrangler pages project create portfolio-website
+        # Deploy
+        pnpm wrangler pages deploy .next/static
+        ```
+        **Tests:**
+        - [ ] Site accessible at pages.dev URL
+        - [ ] No console errors
+        - [ ] All components render correctly
         **Description:** First deployment to validate infrastructure
         **Acceptance:** Site live on Cloudflare
         **Steps:**
@@ -555,7 +568,22 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
         - [ ] Page loads in <2s
         - [ ] No console errors
   
-  - [ ] 7.3 Test CMS admin access
+  - [ ] 7.3 Deploy Payload CMS Admin (Cloudflare Workers)
+        **Description:** Deploy Payload admin to Cloudflare Workers
+        **Acceptance:** Admin panel accessible
+        **Steps:**
+        - Create dedicated admin worker entry point
+        - Configure for Node.js compat mode
+        - Deploy to separate subdomain
+        ```bash
+        pnpm wrangler deploy --name portfolio-admin
+        ```
+        **Tests:**
+        - [ ] Navigate to admin URL
+        - [ ] Admin panel loads
+        - [ ] Can log in via OAuth
+        
+  - [ ] 7.4 Test CMS admin access
         **Description:** Verify Payload CMS admin panel works
         **Acceptance:** Can log in and see CMS interface
         **Steps:**
