@@ -49,54 +49,73 @@ export default function NavHeader({ siteConfig, activeSection }: NavHeaderProps)
       <div className={styles.container}>
         {/* Left: Name & Location */}
         <div className={styles.left}>
-          <span className={`${styles.name} body-medium-bold`}>{siteConfig.name}</span>
-          <span className={`${styles.location} body-small`}>{siteConfig.location}</span>
+          <span className={`${styles.name} body-medium`}>{siteConfig.name}</span>
+          <span className={`${styles.location} body-medium`}>Now in {siteConfig.location}</span>
         </div>
 
         {/* Center: Navigation Links */}
         <nav className={styles.nav}>
           <button
             onClick={() => scrollToSection('work')}
-            className={`${styles.navLink} label-large ${activeSection === 'work' ? styles.active : ''}`}
+            className={`${styles.navLink} body-medium ${activeSection === 'work' ? styles.active : ''}`}
             aria-current={activeSection === 'work' ? 'page' : undefined}
           >
-            Work
+            ☩ Work
           </button>
           <button
             onClick={() => scrollToSection('about')}
-            className={`${styles.navLink} label-large ${activeSection === 'about' ? styles.active : ''}`}
+            className={`${styles.navLink} body-medium ${activeSection === 'about' ? styles.active : ''}`}
             aria-current={activeSection === 'about' ? 'page' : undefined}
           >
-            About
+            ☩ About
           </button>
         </nav>
 
-        {/* Right: Social Links & CV */}
+        {/* Right: Social Links & Menu */}
         <div className={styles.right}>
           <div className={styles.socialLinks}>
-            {siteConfig.socialLinks.map((link, index) => (
+            <div className={styles.socialColumn}>
               <a
-                key={index}
-                href={link.url}
+                href={siteConfig.socialLinks.find(l => l.platform.toLowerCase() === 'twitter')?.url || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.socialLink} label-small`}
-                aria-label={link.label || link.platform}
+                className={`${styles.socialLink} body-medium`}
               >
-                {link.platform}
+                Twitter ↗
               </a>
-            ))}
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className={`${styles.socialLink} body-medium`}
+              >
+                E-Mail ↗
+              </a>
+            </div>
+            <div className={styles.socialColumn}>
+              <a
+                href={siteConfig.socialLinks.find(l => l.platform.toLowerCase() === 'linkedin')?.url || '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.socialLink} body-medium`}
+              >
+                LinkedIn ↗
+              </a>
+              {siteConfig.cvFile && (
+                <a
+                  href={siteConfig.cvFile.url}
+                  download
+                  className={`${styles.socialLink} body-medium`}
+                >
+                  Resume ↓
+                </a>
+              )}
+            </div>
           </div>
-          {siteConfig.cvFile && (
-            <a
-              href={siteConfig.cvFile.url}
-              download
-              className={`${styles.cvButton} button-text-large`}
-              aria-label="Download CV"
-            >
-              CV
-            </a>
-          )}
+          <button className={`${styles.menuButton} button-text-large`} aria-label="Open menu">
+            MENU
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M2 8H14M8 2L14 8L8 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
         </div>
       </div>
     </header>

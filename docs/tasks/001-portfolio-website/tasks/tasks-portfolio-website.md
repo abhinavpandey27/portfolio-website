@@ -82,6 +82,57 @@ Build all frontend components, CMS integration, and polish.
 
 ---
 
+## 🔬 Testing Pattern (MANDATORY for ALL Components)
+
+Every component implementation MUST follow this 5-step workflow:
+
+### Step 1: Review Figma Design
+```bash
+# Use Figma MCP to fetch design
+mcp__figma__get_screenshot(nodeId: "[component-node-id]")
+mcp__figma__get_code(nodeId: "[component-node-id]")
+```
+- Extract exact measurements, colors, typography
+- Note all design tokens used
+- Identify spacing, layout, interactions
+
+### Step 2: Implement Component
+- Write React component matching Figma specs
+- Use design tokens from `/src/styles/design-tokens.css`
+- Apply typography classes from `/src/styles/typography.css`
+- Follow existing patterns and conventions
+
+### Step 3: Test with Playwright MCP
+```bash
+# Start dev server (in separate terminal)
+pnpm dev
+
+# Navigate and test
+mcp__playwright__browser_navigate(url: "http://localhost:3000")
+mcp__playwright__browser_snapshot()
+mcp__playwright__browser_take_screenshot(filename: "component-name.png")
+```
+
+### Step 4: Compare Figma vs Implementation
+- Open both screenshots side-by-side
+- Verify: spacing, typography, colors, layout, interactions
+- Document differences in DESIGN_COMPARISON.md
+
+### Step 5: Fix and Re-test
+- Fix all differences found
+- Re-run Playwright MCP tests
+- Verify pixel-perfect match with Figma
+- Commit only when 100% matched
+
+**Figma Design Links:**
+- Home Desktop: https://www.figma.com/design/AzVxiCyRgc3uVWW9IaxkSk/Folio-Website?node-id=36-8459
+- Home Mobile: https://www.figma.com/design/AzVxiCyRgc3uVWW9IaxkSk/Folio-Website?node-id=36-8787
+- Components: https://www.figma.com/design/AzVxiCyRgc3uVWW9IaxkSk/Folio-Website?node-id=42-8879
+- Colors: https://www.figma.com/design/AzVxiCyRgc3uVWW9IaxkSk/Folio-Website?node-id=3-19700
+- Typography: https://www.figma.com/design/AzVxiCyRgc3uVWW9IaxkSk/Folio-Website?node-id=3-18936
+
+---
+
 ## Tasks
 
 ### Phase 1: Foundation & Infrastructure Setup
