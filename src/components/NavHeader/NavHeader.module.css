@@ -1,0 +1,124 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-sticky);
+  transition: background-color var(--transition-base) var(--ease-default),
+              backdrop-filter var(--transition-base) var(--ease-default);
+}
+
+.header.scrolled {
+  background-color: var(--color-material-regular);
+  backdrop-filter: var(--backdrop-blur-regular);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-64);
+  padding: var(--space-24);
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+/* Left Section */
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.name {
+  color: var(--color-label-primary);
+}
+
+.location {
+  color: var(--color-label-secondary);
+}
+
+/* Center Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-32);
+}
+
+.navLink {
+  color: var(--color-label-primary);
+  transition: color var(--transition-fast) var(--ease-default);
+  cursor: pointer;
+  padding: var(--space-8) 0;
+}
+
+.navLink:hover {
+  color: var(--color-label-secondary);
+}
+
+.navLink.active {
+  color: var(--color-label-primary);
+  font-weight: 600;
+}
+
+/* Right Section */
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-24);
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.socialLink {
+  color: var(--color-label-secondary);
+  transition: color var(--transition-fast) var(--ease-default);
+}
+
+.socialLink:hover {
+  color: var(--color-label-primary);
+}
+
+.cvButton {
+  padding: 8px 16px 8px 12px;
+  border-radius: var(--radius-button);
+  background-color: var(--color-label-primary);
+  color: var(--color-bg-system-white);
+  transition: background-color var(--transition-fast) var(--ease-default);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.cvButton:hover {
+  background-color: var(--color-label-secondary);
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+  .container {
+    padding: var(--space-16);
+    gap: var(--space-20);
+    height: 72px;
+  }
+
+  .left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .nav {
+    gap: var(--space-16);
+  }
+
+  .socialLinks {
+    display: none;
+  }
+
+  .right {
+    gap: var(--space-12);
+  }
+}
