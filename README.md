@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# portfolio-website
-Personal design portfolio website built with Next.js, Payload CMS, and Cloudflare Workers
-=======
 # Abhinav Pandey - Portfolio Website
 
 Personal design portfolio showcasing product design work and case studies. Built with Next.js, Payload CMS, and deployed on Cloudflare Workers.
