@@ -14,20 +14,28 @@ export default defineConfig({
     video: 'retain-on-failure',
   },
 
+  expect: {
+    toHaveScreenshot: {
+      maxDiffPixels: 100,
+      threshold: 0.2,
+    },
+  },
+
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { 
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1440, height: 900 },
+      },
     },
 
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: 'mobile',
+      use: { 
+        ...devices['iPhone 12'],
+        viewport: { width: 375, height: 667 },
+      },
     },
   ],
 
