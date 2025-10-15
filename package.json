@@ -15,17 +15,26 @@
     "deploy": "wrangler deploy"
   },
   "dependencies": {
+    "@libsql/client": "^0.15.15",
+    "@payloadcms/db-sqlite": "^3.59.1",
+    "@payloadcms/richtext-lexical": "^3.59.1",
+    "dotenv": "^17.2.3",
+    "next": "15.5.5",
+    "next-google-fonts": "^2.2.0",
+    "payload": "^3.59.1",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.5"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@payloadcms/bundler-webpack": "^1.0.7",
+    "@playwright/test": "^1.56.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.5",
-    "@eslint/eslintrc": "^3"
+    "typescript": "^5",
+    "wrangler": "^4.43.0"
   }
 }
