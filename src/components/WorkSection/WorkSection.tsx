@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 import WorkSectionHeader from './WorkSectionHeader';
 import AutoScrollCarousel from '../AutoScrollCarousel/AutoScrollCarousel';
 import styles from './WorkSection.module.css';
@@ -24,6 +26,7 @@ interface WorkSectionProps {
 export default function WorkSection({ project }: WorkSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const [isActive, setIsActive] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -46,13 +49,26 @@ export default function WorkSection({ project }: WorkSectionProps) {
     return () => observer.disconnect();
   }, [project.backgroundColor]);
 
+  const fadeInVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: prefersReducedMotion ? 0 : 0.5 }
+    },
+  };
+
   return (
-    <section 
+    <motion.section 
       ref={sectionRef}
       className={styles.section}
       data-section="work"
       data-active={isActive}
       style={{ backgroundColor: project.backgroundColor }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={fadeInVariants}
     >
       <div className={styles.wrapper}>
         <WorkSectionHeader
@@ -71,6 +87,6 @@ export default function WorkSection({ project }: WorkSectionProps) {
           <AutoScrollCarousel images={project.carouselImages} />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

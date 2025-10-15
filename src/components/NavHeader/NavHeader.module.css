@@ -103,6 +103,13 @@
 
 .menuButton:hover {
   background-color: var(--color-neutral-dark-64);
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menuButton:hover {
+    transform: none;
+  }
 }
 
 .menuButton svg {

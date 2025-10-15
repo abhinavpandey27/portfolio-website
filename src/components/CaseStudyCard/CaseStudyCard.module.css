@@ -3,6 +3,19 @@
   border: 0.5px solid var(--color-separator-non-opaque);
   border-radius: var(--radius-1);
   overflow: hidden;
+  transition: transform var(--transition-base) var(--ease-default),
+              box-shadow var(--transition-base) var(--ease-default);
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
+  }
 }
 
 .content {

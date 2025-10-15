@@ -41,8 +41,32 @@ const mockSiteConfig = {
 };
 
 export default function Home() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Abhinav Pandey',
+    jobTitle: 'Product Designer',
+    url: 'https://portfolio-website.pages.dev',
+    sameAs: [
+      'https://twitter.com/abhinavpandey',
+      'https://linkedin.com/in/abhinavpandey',
+      'https://github.com/abhinavpandey27',
+    ],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Mumbai',
+      addressCountry: 'India',
+    },
+    alumniOf: 'Product Designer',
+    description: '7+ years of experience in product and service design. Currently reinventing techno-events at Reve.',
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <div className={styles.heroContainer}>
