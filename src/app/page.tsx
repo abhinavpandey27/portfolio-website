@@ -68,7 +68,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* Hero Section */}
-      <section className={styles.heroSection}>
+      <section className={styles.heroSection} id="main-content">
         <div className={styles.heroContainer}>
           <NavHeader siteConfig={mockSiteConfig} activeSection="work" />
           
