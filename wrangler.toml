@@ -1,9 +1,6 @@
 name = "portfolio-website"
-main = "src/server.ts"
 compatibility_date = "2024-01-01"
-
-[env.production]
-vars = { NODE_ENV = "production" }
+pages_build_output_dir = ".vercel/output/static"
 
 [[d1_databases]]
 binding = "DB"
