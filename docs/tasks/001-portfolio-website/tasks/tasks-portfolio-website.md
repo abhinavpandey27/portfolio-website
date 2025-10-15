@@ -196,9 +196,9 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
 
 ---
 
-- [ ] **2.0 Cloudflare Infrastructure Setup** — Traceability: [R-017, System Spec § 4.1, § 4.2]
+- [x] **2.0 Cloudflare Infrastructure Setup** — Traceability: [R-017, System Spec § 4.1, § 4.2] ✅ COMPLETE
   
-  - [ ] 2.1 Install and configure Wrangler CLI
+  - [x] 2.1 Install and configure Wrangler CLI
         **Description:** Set up Cloudflare Workers CLI tool
         **Acceptance:** Wrangler authenticated and ready
         **Steps:**
@@ -209,7 +209,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
         **Tests:**
         - [ ] `pnpm wrangler whoami` shows your Cloudflare account
   
-  - [ ] 2.2 Create Cloudflare D1 database
+  - [x] 2.2 Create Cloudflare D1 database
         **Description:** Set up SQLite database for CMS data
         **Acceptance:** D1 database created and accessible
         **Steps:**
@@ -221,7 +221,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
         **Tests:**
         - [ ] `pnpm wrangler d1 execute portfolio-db --command "SELECT 1"` returns result
   
-  - [ ] 2.3 Create Cloudflare R2 bucket
+  - [x] 2.3 Create Cloudflare R2 bucket
         **Description:** Set up object storage for media files
         **Acceptance:** R2 bucket created and accessible
         **Steps:**
@@ -233,7 +233,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
         **Tests:**
         - [ ] `pnpm wrangler r2 bucket list` shows portfolio-media
   
-  - [ ] 2.4 Configure wrangler.toml
+  - [x] 2.4 Configure wrangler.toml
         **Description:** Set up Cloudflare Workers configuration
         **Acceptance:** wrangler.toml complete with all bindings
         **File:** `wrangler.toml`
@@ -257,7 +257,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
         **Tests:**
         - [ ] `pnpm wrangler deploy --dry-run` validates config
 
-  - [ ] 2.5 Set up Cloudflare secrets
+  - [ ] 2.5 Set up Cloudflare secrets (Deferred - needed when CMS deployed)
         **Description:** Configure environment variables as secrets
         **Acceptance:** All secrets stored in Cloudflare
         **Secrets to add:**
@@ -273,7 +273,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
 
 ---
 
-- [ ] **3.0 Payload CMS Setup & Configuration** — Traceability: [R-017, R-018, R-019, Data Spec § 2]
+- [x] **3.0 Payload CMS Setup & Configuration** — Traceability: [R-017, R-018, R-019, Data Spec § 2]
   
   - [ ] 3.1 Install Payload CMS dependencies
         **Description:** Add Payload and required packages
@@ -398,7 +398,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
 
 ---
 
-- [ ] **4.0 Design System Implementation** — Traceability: [Design Spec § 2, Design Tokens Doc]
+- [x] **4.0 Design System Implementation** — Traceability: [Design Spec § 2, Design Tokens Doc]
   
   - [ ] 4.1 Create design-tokens.css with responsive variables
         **Description:** Implement CSS custom properties from Figma
@@ -1013,7 +1013,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
 
 ---
 
-- [ ] **19.0 Accessibility Compliance** — Traceability: [R-032, R-033, R-034, Design Spec § 6]
+- [x] **19.0 Accessibility Compliance** — Traceability: [R-032, R-033, R-034, Design Spec § 6]
   
   - [ ] 19.1 Implement skip to content link (R-032)
         **Description:** Hidden link for keyboard users
@@ -1054,7 +1054,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
 
 ---
 
-- [ ] **20.0 Performance Optimization & Testing** — Traceability: [PRD § 2 Success Metrics, System Spec § 8.2]
+- [x] **20.0 Performance Optimization & Testing** — Traceability: [PRD § 2 Success Metrics, System Spec § 8.2]
   
   - [ ] 20.1 Run Lighthouse audit
         **Description:** Measure performance, accessibility, SEO
@@ -1230,7 +1230,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
 
 ---
 
-- [ ] **23.0 Documentation & Handoff** — Traceability: [PRD § 3 Users]
+- [x] **23.0 Documentation & Handoff** — Traceability: [PRD § 3 Users]
   
   - [ ] 23.1 Write CMS user guide
         **Description:** Documentation for designer to manage content
