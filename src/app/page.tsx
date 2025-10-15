@@ -1,5 +1,7 @@
 import NavHeader from '@/components/NavHeader/NavHeader';
 import AutoScrollCarousel from '@/components/AutoScrollCarousel/AutoScrollCarousel';
+import CaseStudyCard from '@/components/CaseStudyCard/CaseStudyCard';
+import styles from './page.module.css';
 
 const mockCarouselImages = [
   { url: '/images/carousel-1.jpg', alt: 'Project image 1', width: 452, height: 565 },
@@ -25,22 +27,39 @@ const mockSiteConfig = {
 export default function Home() {
   return (
     <>
-      <NavHeader siteConfig={mockSiteConfig} activeSection="work" />
-      
-      <main style={{ padding: 'var(--space-120)', maxWidth: '1440px', margin: '0 auto', minHeight: '200vh' }}>
-        <section id="work" style={{ marginBottom: 'var(--space-160)' }}>
-          <h1 className="heading-1" style={{ marginBottom: 'var(--space-24)' }}>
-            Abhinav Pandey
-          </h1>
-          <p className="heading-4" style={{ color: 'var(--color-label-secondary)', marginBottom: 'var(--space-64)' }}>
-            Product Designer
-          </p>
-          <p className="body-large" style={{ maxWidth: '640px', marginBottom: 'var(--space-64)' }}>
-            Portfolio website coming soon. Building a design-first experience with Next.js, Payload CMS, and Cloudflare Workers.
-          </p>
+      {/* Hero Section */}
+      <section className={styles.heroSection}>
+        <div className={styles.heroContainer}>
+          <NavHeader siteConfig={mockSiteConfig} activeSection="work" />
           
-          {/* Carousel Demo */}
-          <AutoScrollCarousel images={mockCarouselImages} />
+          <div className={styles.heroContent}>
+            <div className={styles.bioText}>
+              <h1 className="heading-4">
+                Abhinav Pandey is a Product Designer, passionate about creating wholesome experiences. Currently reinventing techno-events at Reve.
+              </h1>
+            </div>
+            
+            <CaseStudyCard
+              title="STRIKER"
+              subtitle="Designing for 0→1 of a new player-card-based fantasy system"
+              imageUrl="/images/striker-preview.jpg"
+              imageAlt="Striker project preview"
+            />
+          </div>
+          
+          <div className={styles.heroCarousel}>
+            <AutoScrollCarousel images={mockCarouselImages} />
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <main style={{ padding: 'var(--space-120)', maxWidth: '1440px', margin: '0 auto', minHeight: '100vh' }}>
+        <section id="work" style={{ marginBottom: 'var(--space-160)' }}>
+          <h2 className="heading-2">Work Section</h2>
+          <p className="body-large" style={{ color: 'var(--color-label-secondary)' }}>
+            Work sections coming soon...
+          </p>
         </section>
 
         <section id="about" style={{ marginTop: 'var(--space-160)', paddingTop: 'var(--space-80)' }}>
