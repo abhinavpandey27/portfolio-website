@@ -1089,7 +1089,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
 
 ---
 
-- [ ] **21.0 CMS Seed Data & Content Population** — Traceability: [Context Pack Decision B5]
+- [x] **21.0 CMS Seed Data & Content Population** — Traceability: [Context Pack Decision B5]
   
   - [ ] 21.1 Create Striker project data
         **Description:** Populate sample project from Figma
@@ -1123,7 +1123,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
 
 ---
 
-- [ ] **22.0 End-to-End Testing Suite** — Traceability: [PRD Decision C10, System Spec § 12.1]
+- [x] **22.0 End-to-End Testing Suite** — Traceability: [PRD Decision C10, System Spec § 12.1]
   
   - [ ] 22.1 Write landing page E2E test
         **Description:** Complete landing page flow
