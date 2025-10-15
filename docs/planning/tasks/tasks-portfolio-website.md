@@ -86,7 +86,7 @@ Build all frontend components, CMS integration, and polish.
 
 ### Phase 1: Foundation & Infrastructure Setup
 
-- [ ] **1.0 Repository & Project Initialization** — Traceability: [PRD § 9.1, System Spec § 4]
+- [x] **1.0 Repository & Project Initialization** — Traceability: [PRD § 9.1, System Spec § 4]
   
   - [x] 1.1 Create GitHub repository
         **Description:** Create new GitHub repository named `portfolio-website`
