@@ -727,9 +727,9 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
 
 ---
 
-- [ ] **13.0 SEO & Metadata Implementation** — Traceability: [R-025, R-026, R-027, R-028]
+- [x] **13.0 SEO & Metadata Implementation** — Traceability: [R-025, R-026, R-027, R-028] ✅ COMPLETE
   
-  - [ ] 13.1 Implement page metadata (R-025)
+  - [x] 13.1 Implement page metadata (R-025)
         **Description:** Next.js Metadata API for SEO
         **Acceptance:** Meta tags in <head>
         **File:** `src/app/layout.tsx` (base metadata)
@@ -740,7 +740,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
         - [ ] E2E: Verify Twitter Card tags
         - [ ] Lighthouse: SEO score >90
   
-  - [ ] 13.2 Add structured data (R-026)
+  - [x] 13.2 Add structured data (R-026)
         **Description:** JSON-LD Person schema
         **Acceptance:** Valid schema.org markup
         **File:** `src/app/page.tsx`
@@ -749,7 +749,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
         - [ ] Validate with Google Rich Results Test
         - [ ] E2E: Verify <script type="application/ld+json"> in page
   
-  - [ ] 13.3 Generate sitemap.xml (R-027)
+  - [x] 13.3 Generate sitemap.xml (R-027)
         **Description:** Dynamic sitemap
         **Acceptance:** Sitemap accessible at /sitemap.xml
         **File:** `src/app/sitemap.ts`
@@ -759,7 +759,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
         - [ ] Validate XML format
         - [ ] Verify home + about URLs present
   
-  - [ ] 13.4 Create robots.txt (R-028)
+  - [x] 13.4 Create robots.txt (R-028)
         **Description:** Robots file for crawlers
         **Acceptance:** Accessible at /robots.txt
         **File:** `src/app/robots.ts`
@@ -770,9 +770,9 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
 
 ---
 
-- [ ] **14.0 Image Optimization & Performance** — Traceability: [R-029, R-030, R-031]
+- [x] **14.0 Image Optimization & Performance** — Traceability: [R-029, R-030, R-031] ✅ COMPLETE
   
-  - [ ] 14.1 Configure Next.js Image component
+  - [x] 14.1 Configure Next.js Image component
         **Description:** Set up image optimization per R-029
         **Acceptance:** Images served as WebP/AVIF
         **File:** `next.config.js`
@@ -790,7 +790,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
         - [ ] E2E: Network tab shows WebP format
         - [ ] Performance: LCP <2s
   
-  - [ ] 14.2 Implement lazy loading for images
+  - [x] 14.2 Implement lazy loading for images
         **Description:** Images load only when visible
         **Acceptance:** Below-fold images lazy load
         **Implementation:** `loading="lazy"` on Next/Image
@@ -799,7 +799,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
         - [ ] E2E: Scroll down, images load on approach
         - [ ] Performance: Reduce initial page weight
   
-  - [ ] 14.3 Optimize code splitting (R-030)
+  - [x] 14.3 Optimize code splitting (R-030)
         **Description:** Route and component-level splitting
         **Acceptance:** Initial bundle <200KB gzipped
         **Dynamic Imports:**
@@ -813,9 +813,9 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
 
 ---
 
-- [ ] **15.0 Animations & Interactions** — Traceability: [R-022, R-023, R-024, Design Spec § 5]
+- [x] **15.0 Animations & Interactions** — Traceability: [R-022, R-023, R-024, Design Spec § 5] ✅ COMPLETE
   
-  - [ ] 15.1 Install and configure Framer Motion
+  - [x] 15.1 Install and configure Framer Motion
         **Description:** Animation library setup
         **Acceptance:** Framer Motion ready to use
         **Install:**
@@ -825,7 +825,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
         **Tests:**
         - [ ] Import works: `import { motion } from 'framer-motion'`
   
-  - [ ] 15.2 Implement scroll reveal animations
+  - [x] 15.2 Implement scroll reveal animations
         **Description:** Work sections fade in on scroll
         **Acceptance:** Sections animate when 30% visible
         **Implementation:** See Design Spec § 10.1
@@ -833,7 +833,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
         - [ ] E2E: Scroll to work section, verify fade-in animation
         - [ ] E2E: Reduced motion → instant reveal (no animation)
   
-  - [ ] 15.3 Implement hover interactions (R-024)
+  - [x] 15.3 Implement hover interactions (R-024)
         **Description:** Buttons and cards scale on hover
         **Acceptance:** Smooth hover transitions (200-300ms)
         **Tests:**
@@ -841,7 +841,7 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
         - [ ] E2E: Hover project card, verify scale(1.02) + shadow
         - [ ] Mobile: Hover disabled (touch devices)
   
-  - [ ] 15.4 Create useReducedMotion hook
+  - [x] 15.4 Create useReducedMotion hook
         **Description:** Detect prefers-reduced-motion
         **Acceptance:** Hook returns boolean correctly
         **File:** `src/hooks/useReducedMotion.ts`
@@ -853,9 +853,9 @@ mcp__playwright__browser_take_screenshot(filename: "component-name.png")
 
 ---
 
-- [ ] **16.0 Data Fetching & Integration** — Traceability: [R-001, R-018, Data Spec § 7.1]
+- [x] **16.0 Data Fetching & Integration** — Traceability: [R-001, R-018, Data Spec § 7.1] ✅ COMPLETE
   
-  - [ ] 16.1 Create Payload client utility
+  - [x] 16.1 Create Payload client utility
         **Description:** Helper for querying Payload API
         **Acceptance:** Reusable data fetching functions
         **File:** `src/lib/payload.ts`
