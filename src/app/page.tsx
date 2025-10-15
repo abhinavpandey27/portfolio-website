@@ -1,4 +1,12 @@
 import NavHeader from '@/components/NavHeader/NavHeader';
+import AutoScrollCarousel from '@/components/AutoScrollCarousel/AutoScrollCarousel';
+
+const mockCarouselImages = [
+  { url: '/images/carousel-1.jpg', alt: 'Project image 1', width: 452, height: 565 },
+  { url: '/images/carousel-2.jpg', alt: 'Project image 2', height: 505 },
+  { url: '/images/carousel-3.jpg', alt: 'Project image 3', width: 530, height: 607 },
+  { url: '/images/carousel-4.jpg', alt: 'Project image 4', width: 370, height: 463 },
+];
 
 const mockSiteConfig = {
   name: 'Abhinav Pandey',
@@ -27,9 +35,12 @@ export default function Home() {
           <p className="heading-4" style={{ color: 'var(--color-label-secondary)', marginBottom: 'var(--space-64)' }}>
             Product Designer
           </p>
-          <p className="body-large" style={{ maxWidth: '640px' }}>
+          <p className="body-large" style={{ maxWidth: '640px', marginBottom: 'var(--space-64)' }}>
             Portfolio website coming soon. Building a design-first experience with Next.js, Payload CMS, and Cloudflare Workers.
           </p>
+          
+          {/* Carousel Demo */}
+          <AutoScrollCarousel images={mockCarouselImages} />
         </section>
 
         <section id="about" style={{ marginTop: 'var(--space-160)', paddingTop: 'var(--space-80)' }}>

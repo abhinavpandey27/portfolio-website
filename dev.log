@@ -8,12 +8,16 @@
    - Environments: .env
 
  ✓ Starting...
- ✓ Ready in 1022ms
+ ✓ Ready in 1039ms
  ○ Compiling / ...
- ✓ Compiled / in 1777ms
- HEAD / 200 in 2068ms
- GET / 200 in 218ms
- ✓ Compiled /favicon.ico in 381ms
- GET /favicon.ico?favicon.0b3bf435.ico 200 in 705ms
- ✓ Compiled in 42ms
+ ✓ Compiled / in 4.4s
+ HEAD / 200 in 4774ms
+ GET / 200 in 179ms
+ ✓ Compiled /_not-found/page in 380ms
+ GET /images/carousel-2.jpg 404 in 747ms
+ GET /images/carousel-3.jpg 404 in 742ms
+ GET /images/carousel-1.jpg 404 in 776ms
+ GET /images/carousel-4.jpg 404 in 747ms
+ ✓ Compiled /favicon.ico in 233ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 506ms
 [?25h

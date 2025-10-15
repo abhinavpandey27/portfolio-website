@@ -82,7 +82,7 @@ Build all frontend components, CMS integration, and polish.
 
 ---
 
-## 🔬 Testing Pattern (MANDATORY for ALL Components)
+## 🔬 Testing Pattern (MANDATORY for ALL Components and new FE Code)
 
 Every component implementation MUST follow this 5-step workflow:
 
