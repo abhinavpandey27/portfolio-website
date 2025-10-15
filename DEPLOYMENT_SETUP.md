@@ -66,17 +66,35 @@ pnpm build
 pnpm wrangler pages deploy .next --project-name=portfolio-website
 ```
 
+## Cloudflare Pages Compatibility Flag
+
+**IMPORTANT:** You need to enable Node.js compatibility in Cloudflare Pages dashboard.
+
+### Steps to Add nodejs_compat Flag:
+
+1. Go to: https://dash.cloudflare.com
+2. Click **"Workers & Pages"** in left sidebar
+3. Click on **"portfolio-website"** project
+4. Click **"Settings"** tab
+5. Scroll to **"Compatibility flags"** section
+6. Click **"Add flag"**
+7. Type: `nodejs_compat`
+8. Click **"Save"**
+
+This enables Node.js APIs needed for the app to run on Cloudflare Workers.
+
 ## Current Deployment Status
 
 - ✅ Frontend Code: Complete and working
-- ✅ Build: Passing locally
+- ✅ Build: Passing locally and in CI
 - ✅ Cloudflare Pages Project: Created
-- ⏳ GitHub Actions: Needs secrets configuration
-- 🌐 Live URL: https://a60f36b6.portfolio-website-9xv.pages.dev
+- ✅ GitHub Secrets: Configured
+- ⏳ Compatibility Flag: Needs to be added in dashboard
+- 🌐 Live URL: https://9f1732a1.portfolio-website-9xv.pages.dev
 
 ## Next Steps
 
-1. Add GitHub secrets (CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID)
-2. Push a commit to trigger deployment
-3. Verify deployment succeeds in Actions tab
-4. Check live URL works correctly
+1. ✅ Add GitHub secrets (DONE)
+2. **Add nodejs_compat flag in Cloudflare dashboard** (see above)
+3. Redeploy: `pnpm deploy`
+4. Verify site works correctly
