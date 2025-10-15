@@ -2,6 +2,7 @@ import NavHeader from '@/components/NavHeader/NavHeader';
 import AutoScrollCarousel from '@/components/AutoScrollCarousel/AutoScrollCarousel';
 import CaseStudyCard from '@/components/CaseStudyCard/CaseStudyCard';
 import WorkSection from '@/components/WorkSection/WorkSection';
+import AboutSection from '@/components/AboutSection/AboutSection';
 import styles from './page.module.css';
 
 const mockCarouselImages = [
@@ -72,21 +73,14 @@ export default function Home() {
       <WorkSection project={mockProject} />
 
       {/* About Section */}
-      <section id="about" style={{ 
-        minHeight: '100vh', 
-        padding: 'var(--space-120)', 
-        backgroundColor: 'var(--color-bg-shell)',
-        transition: 'background-color var(--transition-smooth) var(--ease-default)'
-      }}>
-        <div style={{ maxWidth: '1440px', margin: '0 auto' }}>
-          <h2 className="heading-2" style={{ marginBottom: 'var(--space-24)' }}>
-            About
-          </h2>
-          <p className="body-large" style={{ maxWidth: '640px', color: 'var(--color-label-secondary)' }}>
-            More content coming soon...
-          </p>
-        </div>
-      </section>
+      <AboutSection
+        bioLeft="7+ years of experience in product and service design. I worked in both big corporations and small startups, always striving to turn complex things into intuitive and thoughtful ones."
+        bioRight="Did 0→1 for a new player-card-based fantasy system. Designed, tested, and shipped core UX and final UI under high ambiguity with rapid iteration. Balanced gamification, education, and monetization through a clean, mobile-first design approach that scaled across drops, fantasy, and crafting flows."
+        carouselImages={mockCarouselImages}
+        socialLinks={mockSiteConfig.socialLinks}
+        email={mockSiteConfig.email}
+        cvUrl={mockSiteConfig.cvFile.url}
+      />
     </>
   );
 }
