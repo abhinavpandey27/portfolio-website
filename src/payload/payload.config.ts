@@ -50,7 +50,7 @@ export default buildConfig({
   graphQL: {
     schemaOutputFile: 'src/payload/schema.graphql',
   },
-  secret: process.env.PAYLOAD_SECRET || 'your-secret-key-here',
+  secret: process.env.PAYLOAD_SECRET || 'yvxmLyxUB8YBjX8Liq1HYY8gM3d8U92kGUMgklmxBB8=',
   upload: {
     limits: {
       fileSize: 5 * 1024 * 1024, // 5MB
