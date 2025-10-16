@@ -4,28 +4,32 @@ export const Media: CollectionConfig = {
   slug: 'media',
   upload: {
     mimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'],
+    // Storage handled by R2 plugin in payload.config.ts
     imageSizes: [
       {
         name: 'thumbnail',
         width: 400,
-        height: 300,
+        height: undefined, // Maintain aspect ratio
         position: 'centre',
       },
       {
         name: 'card',
         width: 800,
-        height: 600,
+        height: 800, // Square for cards
         position: 'centre',
       },
       {
         name: 'large',
         width: 1920,
-        height: 1080,
+        height: undefined, // Maintain aspect ratio
         position: 'centre',
       },
     ],
     formatOptions: {
       format: 'webp',
+      options: {
+        quality: 85,
+      },
     },
   },
   fields: [

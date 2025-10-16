@@ -1,6 +1,6 @@
 # Abhinav Pandey - Portfolio Website
 
-Personal design portfolio showcasing product design work and case studies. Built with Next.js, Payload CMS, and deployed on Cloudflare Workers.
+Personal design portfolio showcasing product design work and case studies. Built with Next.js and Payload CMS. Frontend runs on Cloudflare Pages/Workers, while Payload admin runs on a dedicated Node.js host.
 
 ## Tech Stack
 
@@ -9,7 +9,7 @@ Personal design portfolio showcasing product design work and case studies. Built
 - **CMS**: Payload CMS 3.x with SQLite adapter
 - **Database**: Cloudflare D1 (SQLite)
 - **Storage**: Cloudflare R2
-- **Hosting**: Cloudflare Workers + Pages
+- **Hosting**: Cloudflare Pages (frontend) + Node.js platform (Payload admin)
 - **Animation**: Framer Motion
 - **Testing**: Playwright
 
@@ -39,12 +39,14 @@ cp .env.example .env
 # Edit .env with your values
 ```
 
-4. **Run development server**
+4. **Run development servers**
 ```bash
 pnpm dev
+# In a separate terminal
+pnpm cms:dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
+Open [http://localhost:3000](http://localhost:3000) for the frontend and [http://localhost:4000/admin](http://localhost:4000/admin) for the Payload admin UI.
 
 ### Commands
 
@@ -56,6 +58,8 @@ pnpm typecheck    # TypeScript validation
 pnpm lint         # ESLint
 pnpm test:e2e     # Playwright E2E tests
 pnpm deploy       # Deploy to Cloudflare
+pnpm cms:dev      # Run Payload admin locally (Node runtime)
+pnpm cms:start    # Start Payload admin in production mode
 ```
 
 ## Design System
@@ -96,18 +100,29 @@ See `/docs/tasks/001-portfolio-website/design-system/design-tokens.md` for compl
 - **SiteConfig**: Name, location, social links, CV
 - **AboutSection**: Bio and image carousel
 
-### Access CMS Admin
-Navigate to `/admin` (OAuth login required)
+### Running the CMS Admin
+- Local: `pnpm cms:dev` (http://localhost:4000/admin)
+- Production: deploy `cms/server.ts` to a Node.js host (Railway, Render, Fly.io, Vercel, etc.)
+- Configure `NEXT_PUBLIC_CMS_URL` (frontend) and `CMS_BASE_URL`/`CMS_ALLOWED_ORIGINS` (admin) using the values listed in `.env.example`
 
 ## Deployment
 
-### Cloudflare Workers
+### Cloudflare Pages (Frontend)
 ```bash
 pnpm build
 pnpm deploy
 ```
 
 GitHub Actions automatically deploys on push to `main` branch.
+
+### Payload Admin (Node Host)
+1. Provision a Node-compatible host.
+2. Set the environment variables described in `CMS_DEPLOYMENT.md`.
+3. Deploy with:
+   ```bash
+   pnpm install --frozen-lockfile
+   pnpm cms:start
+   ```
 
 ## Testing
 
@@ -131,4 +146,3 @@ See `TESTING.md` for detailed testing workflow.
 ## License
 
 Private - All Rights Reserved
->>>>>>> bed9854 (Initial commit from Create Next App)

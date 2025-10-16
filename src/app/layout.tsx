@@ -59,9 +59,9 @@ export default function RootLayout({
       <body>
         <a href="#main-content" className="skip-to-content">
           Skip to content
-        </a>
-        {children}
-      </body>
-    </html>
-  );
+    </a>
+      {children}
+  </body>
+</html>
+);
 }

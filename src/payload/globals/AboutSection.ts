@@ -7,11 +7,21 @@ export const AboutSection: GlobalConfig = {
   },
   fields: [
     {
-      name: 'bio',
-      type: 'richText',
+      name: 'bioLeft',
+      type: 'textarea',
       required: true,
+      maxLength: 1000,
       admin: {
-        description: 'About section bio (2-3 paragraphs)',
+        description: 'Left bio text (first paragraph)',
+      },
+    },
+    {
+      name: 'bioRight',
+      type: 'textarea',
+      required: true,
+      maxLength: 1000,
+      admin: {
+        description: 'Right bio text (second paragraph)',
       },
     },
     {

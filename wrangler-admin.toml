@@ -1,0 +1,13 @@
+name = "portfolio-admin"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+main = "src/server.ts"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "portfolio-db"
+database_id = "dd61dc10-feb3-4797-9d58-e5c1c67deda4"
+
+[[r2_buckets]]
+binding = "MEDIA_BUCKET"
+bucket_name = "portfolio-media"

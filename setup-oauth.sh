@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo "🔐 OAuth Setup Instructions (Node Deployment)"
+echo "============================================="
+echo ""
+echo "The Cloudflare Worker-based admin is deprecated."
+echo "Configure OAuth secrets (Google/GitHub) directly in your Node hosting provider."
+echo ""
+echo "1. Create OAuth credentials with redirect URI:"
+echo "   https://<your-cms-host>/api/auth/google/callback"
+echo ""
+echo "2. Set environment variables on the Node host:"
+echo "   GOOGLE_CLIENT_ID=<value>"
+echo "   GOOGLE_CLIENT_SECRET=<value>"
+echo ""
+echo "3. Redeploy the Node service so Payload picks up the new secrets."
+echo ""
+echo "See CMS_DEPLOYMENT.md for full instructions."
+echo ""
+exit 0
