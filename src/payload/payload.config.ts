@@ -15,7 +15,15 @@ const allowedOrigins = process.env.CMS_ALLOWED_ORIGINS
   ? process.env.CMS_ALLOWED_ORIGINS.split(',').map((origin) => origin.trim()).filter(Boolean)
   : undefined
 
-type WorkerR2Bucket = any
+interface WorkerR2Bucket {
+  createMultipartUpload: (key: string, options?: unknown) => Promise<unknown>
+  delete: (keys: string | string[]) => Promise<void>
+  get: (key: string, options?: unknown) => Promise<unknown>
+  head: (key: string) => Promise<unknown>
+  list: (options?: unknown) => Promise<unknown>
+  put: (key: string, value: unknown, options?: unknown) => Promise<unknown>
+  resumeMultipartUpload: (key: string, uploadId: string) => unknown
+}
 
 const workerBucket = (globalThis as { MEDIA_BUCKET?: WorkerR2Bucket }).MEDIA_BUCKET
 

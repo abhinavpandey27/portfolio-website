@@ -12,7 +12,7 @@ const message = JSON.stringify(
   2
 )
 
-export default {
+const workerHandler = {
   async fetch(): Promise<Response> {
     return new Response(message, {
       status: 501,
@@ -23,3 +23,5 @@ export default {
     })
   },
 }
+
+export default workerHandler

@@ -1,11 +1,9 @@
 import NavHeader from '@/components/NavHeader/NavHeader';
 import AutoScrollCarousel from '@/components/AutoScrollCarousel/AutoScrollCarousel';
-import CaseStudyCard from '@/components/CaseStudyCard/CaseStudyCard';
 import WorkSection from '@/components/WorkSection/WorkSection';
 import AboutSection from '@/components/AboutSection/AboutSection';
 import {
   getProjects,
-  getFeaturedProject,
   getSiteConfig,
   getAboutSection,
   type PayloadProject,
@@ -126,9 +124,8 @@ function transformProjectForWorkSection(project: Project) {
 
 export default async function Home() {
   // Fetch data from Payload CMS
-  const [projectsResult, featuredProject, siteConfig, aboutSection] = await Promise.all([
+  const [projectsResult, siteConfig, aboutSection] = await Promise.all([
     getProjects(),
-    getFeaturedProject(),
     getSiteConfig(),
     getAboutSection(),
   ]);
