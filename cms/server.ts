@@ -3,9 +3,8 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import payload from 'payload'
-import { webpackBundler } from '@payloadcms/bundler-webpack'
 
-import payloadConfig from '../payload.config'
+import runtimePayloadConfig from './payload-runtime-config'
 
 dotenv.config({
   path: process.env.PAYLOAD_ENV_PATH
@@ -20,10 +19,7 @@ const CMS_BASE_URL = process.env.CMS_BASE_URL || `http://localhost:${PORT}`
 const parseAllowedOrigins = () => {
   const configured = process.env.CMS_ALLOWED_ORIGINS
   if (!configured) {
-    return [
-      'http://localhost:3000',
-      CMS_BASE_URL,
-    ]
+    return ['http://localhost:3000', CMS_BASE_URL]
   }
 
   return configured
@@ -55,20 +51,16 @@ const start = async () => {
     throw new Error('PAYLOAD_SECRET is required to run the Payload admin server.')
   }
 
-  const configWithBundler = payloadConfig as unknown as { plugins?: unknown[] }
-  const existingPlugins = Array.isArray(configWithBundler.plugins)
-    ? configWithBundler.plugins
-    : []
-  configWithBundler.plugins = [webpackBundler(), ...existingPlugins]
-
   await (payload as unknown as { init: (args: any) => Promise<void> }).init({
-    config: payloadConfig,
+    config: runtimePayloadConfig,
     express: app,
     onInit: () => {
-      payload.logger.info(
-        `Payload Admin ready at ${CMS_BASE_URL}/admin (API ${CMS_BASE_URL}/api)`
-      )
+      payload.logger.info(`Payload Admin ready at ${CMS_BASE_URL}/admin (API ${CMS_BASE_URL}/api)`)
     },
+  })
+
+  app.get('/', (_req, res) => {
+    res.redirect('/admin')
   })
 
   app.listen(PORT, HOST, () => {
