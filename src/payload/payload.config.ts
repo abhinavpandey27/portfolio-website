@@ -2,7 +2,6 @@ import { buildConfig } from 'payload'
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { r2Storage } from '@payloadcms/storage-r2'
-import { webpackBundler } from '@payloadcms/bundler-webpack'
 import { Projects } from './collections/Projects'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -57,17 +56,14 @@ export default buildConfig({
       fileSize: 5 * 1024 * 1024, // 5MB
     },
   },
-  plugins: [
-    webpackBundler(),
-    ...(workerBucket
-      ? [
-          r2Storage({
-            bucket: workerBucket,
-            collections: {
-              media: true,
-            },
-          }),
-        ]
-      : []),
-  ],
+  plugins: workerBucket
+    ? [
+        r2Storage({
+          bucket: workerBucket,
+          collections: {
+            media: true,
+          },
+        }),
+      ]
+    : [],
 })

@@ -3,6 +3,7 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import payload from 'payload'
+import { webpackBundler } from '@payloadcms/bundler-webpack'
 
 import payloadConfig from '../payload.config'
 
@@ -54,8 +55,15 @@ const start = async () => {
     throw new Error('PAYLOAD_SECRET is required to run the Payload admin server.')
   }
 
+  const baseConfig = payloadConfig as unknown as { plugins?: unknown[] }
+  const existingPlugins = Array.isArray(baseConfig.plugins) ? baseConfig.plugins : []
+  const configWithBundler = {
+    ...(payloadConfig as object),
+    plugins: [webpackBundler(), ...existingPlugins],
+  }
+
   await (payload as unknown as { init: (args: any) => Promise<void> }).init({
-    config: payloadConfig,
+    config: configWithBundler,
     express: app,
     onInit: () => {
       payload.logger.info(
