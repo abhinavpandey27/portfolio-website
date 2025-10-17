@@ -1,4 +1,4 @@
-import baseConfig from '../payload.config'
+import baseConfig from '../payload.config.ts'
 import { webpackBundler } from '@payloadcms/bundler-webpack'
 
 const basePlugins = Array.isArray((baseConfig as unknown as { plugins?: unknown[] }).plugins)
