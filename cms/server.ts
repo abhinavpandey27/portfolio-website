@@ -55,15 +55,14 @@ const start = async () => {
     throw new Error('PAYLOAD_SECRET is required to run the Payload admin server.')
   }
 
-  const baseConfig = payloadConfig as unknown as { plugins?: unknown[] }
-  const existingPlugins = Array.isArray(baseConfig.plugins) ? baseConfig.plugins : []
-  const configWithBundler = {
-    ...(payloadConfig as object),
-    plugins: [webpackBundler(), ...existingPlugins],
-  }
+  const configWithBundler = payloadConfig as unknown as { plugins?: unknown[] }
+  const existingPlugins = Array.isArray(configWithBundler.plugins)
+    ? configWithBundler.plugins
+    : []
+  configWithBundler.plugins = [webpackBundler(), ...existingPlugins]
 
   await (payload as unknown as { init: (args: any) => Promise<void> }).init({
-    config: configWithBundler,
+    config: payloadConfig,
     express: app,
     onInit: () => {
       payload.logger.info(
